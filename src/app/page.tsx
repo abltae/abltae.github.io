@@ -66,6 +66,17 @@ export default function Home() {
         </ul>
       </header>
 
+      <video
+        src="/dithering.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls
+        aria-label="Video dithering tool demo"
+        className="w-full rounded-lg"
+      />
+
       <section className="flex flex-col gap-2">
         <h2 className="text-xl font-semibold">about</h2>
         <p>
