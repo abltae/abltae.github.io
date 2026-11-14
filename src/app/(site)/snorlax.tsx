@@ -1,61 +1,13 @@
-// A tiny hand-drawn pixel Snorlax, asleep on its back, that rolls back and forth
-// along the top of the Spotify card (see .snorlax-* in globals.css). Each
-// character is one pixel; "." is transparent.
-const SPRITE = [
-  "..............O....O....",
-  ".............OTO..OTO...",
-  ".............OTTOOTTTO..",
-  "............OTTTTTTTTTO.",
-  "....OO.....OTCCCCCCTTTTO",
-  "...OWWO...OTCOOCCCCCTTTO",
-  "...OTTTO..OTCCCCCOOCTTTO",
-  "....OTTTO.OTSCCOOCCSTTTO",
-  ".....OOCCOOOSSSSSSSOWWTO",
-  "....OCCCCCCCOOOOOOOTTWTO",
-  "...OCCCCCCCCCCCCCSOTTTDO",
-  ".OOCCCCCCCCCCCCCSSOTTDDO",
-  "OWWOCCCCCCCCCCCSSSODDDDO",
-  "OPCCOCCCCCCCCCSSSSODDDO.",
-  "OPPCSOSSSSOWOWOSSSODDDO.",
-  "OPPCSOSSSOCCCCCOSODDDO..",
-  ".OCSSOOODOCPPPCOODDDO...",
-  "..OOO..ODOCPPPCODDDOO...",
-  "........OOCSPSCOOO......",
-  ".........OOOOOO.........",
-];
-
-const COLORS: Record<string, string> = {
-  O: "#3a3a3a", // outline and closed eyes; lifted off pure black so the silhouette reads on the dark page
-  T: "#1aa6a0", // body
-  D: "#11746c", // body in shadow
-  C: "#f0e2a0", // face and belly
-  S: "#f2c46e", // belly shading
-  P: "#8a4a1c", // paw pads
-  W: "#ffffff", // claws and highlights
-};
-
-const COLS = SPRITE[0].length;
-const ROWS = SPRITE.length;
-// Whole-number scale keeps every sprite pixel square and crisp.
-const SCALE = 2;
-
+// A tiny pixel Snorlax that rolls back and forth along the top of the Spotify
+// card (see .snorlax-* in globals.css). The 24x21 sprite is stored at 3x with
+// hard edges and drawn pixelated, so it stays crisp at any screen density.
 export function Snorlax() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-full mb-1">
       <div className="snorlax-mover">
-        <svg
-          className="snorlax-sprite block"
-          width={COLS * SCALE}
-          height={ROWS * SCALE}
-          viewBox={`0 0 ${COLS} ${ROWS}`}
-          shapeRendering="crispEdges"
-        >
-          {SPRITE.flatMap((row, y) =>
-            [...row].map((cell, x) =>
-              COLORS[cell] ? <rect key={`${x}-${y}`} x={x} y={y} width={1} height={1} fill={COLORS[cell]} /> : null,
-            ),
-          )}
-        </svg>
+        {/* Static export has no image optimizer, so a plain <img> is fine here. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/snorlax.png" alt="" width={24} height={21} className="snorlax-sprite block [image-rendering:pixelated]" />
       </div>
     </div>
   );

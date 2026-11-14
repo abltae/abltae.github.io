@@ -103,7 +103,7 @@ body {
    the sprite turns in chunky 15° steps so it reads as pixel art. Both share one
    duration and reverse together, so the roll direction matches the travel. */
 .snorlax-mover {
-  width: calc(100% - 48px);
+  width: calc(100% - 24px);
   animation: snorlax-travel 12s linear infinite alternate;
 }
 
