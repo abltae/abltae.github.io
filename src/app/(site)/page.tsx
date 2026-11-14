@@ -14,7 +14,7 @@ type Month = [iso: string, label: string];
 type Logo = { src: string; width: number; tile?: boolean };
 
 const ROBINHOOD: Logo = { src: "/logos/robinhood.png", width: 20, tile: true };
-const THUNDER: Logo = { src: "/logos/okc-thunder.png", width: 20, tile: true };
+const THUNDER: Logo = { src: "/logos/okc-thunder-tile.png", width: 20, tile: true };
 
 // Newest first.
 const experience: {
