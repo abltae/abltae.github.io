@@ -10,23 +10,16 @@ const links = [
 
 type Month = [iso: string, label: string];
 
-const MAY: Month = ["05", "May"];
-const AUG: Month = ["08", "Aug"];
-
 // Newest first.
 const experience: {
   year: number;
   jobs: { company: string; team?: string; role: string; start: Month; end: Month }[];
 }[] = [
   {
-    year: 2027,
-    jobs: [{ company: "Coinbase", team: "ai infra", role: "software engineer intern", start: MAY, end: AUG }],
-  },
-  {
     year: 2026,
     jobs: [
       { company: "Robinhood", team: "finance eng", role: "software engineer intern", start: ["09", "Sep"], end: ["12", "Dec"] },
-      { company: "Robinhood", team: "ai infra", role: "software engineer intern", start: MAY, end: AUG },
+      { company: "Robinhood", team: "ai infra", role: "software engineer intern", start: ["05", "May"], end: ["08", "Aug"] },
       { company: "Oklahoma City Thunder", team: "data platform", role: "software engineer intern", start: ["01", "Jan"], end: ["04", "Apr"] },
     ],
   },
