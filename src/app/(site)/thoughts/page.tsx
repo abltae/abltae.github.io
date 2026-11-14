@@ -13,7 +13,7 @@ export default function ThoughtsPage() {
       <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">thoughts</h1>
 
       {thoughts.length === 0 ? (
-        <p className="text-white/60">Nothing here yet.</p>
+        <p className="text-white/60">Coming soon.</p>
       ) : (
         <ol className="flex flex-col gap-10">
           {thoughts.map(thought => (
