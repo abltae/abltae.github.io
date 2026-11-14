@@ -27,7 +27,7 @@ export function NowPlaying({ track }: { track: SpotifyTrack }) {
         {track.albumImageUrl && (
           // Static export has no image optimizer, so a plain <img> is fine here.
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={track.albumImageUrl} alt="" width={36} height={36} className="h-9 w-9 shrink-0" />
+          <img src={track.albumImageUrl} alt="" width={36} height={36} className="h-9 w-9 shrink-0 rounded-[9px]" />
         )}
         <p className="min-w-0 truncate text-sm">
           {/* No visible label; screen readers still get the context. */}
