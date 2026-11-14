@@ -4,6 +4,7 @@ import { BackgroundVideo } from "./background-video";
 const links = [
   { label: "GitHub", href: "https://github.com/abltae", external: true },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/tae-hee-lee-664977289/", external: true },
+  { label: "X", href: "https://x.com/jjkjjjn", external: true },
   { label: "Email", href: "mailto:taeheelee1@utexas.edu", external: false },
 ];
 
