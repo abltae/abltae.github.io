@@ -78,12 +78,9 @@ export default function Home() {
         <section className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold text-white">about</h2>
           <p>
-            Hi! I&apos;m Tae Hee Lee, a MIS student at the Mccombs School of Business at UT Austin. I love building
-            software products, mainly full-stack applications and LLM integrations.
-          </p>
-          <p>
-            In my free time you can catch me building, learning new technologies, reselling, playing basketball, golf,
-            poker, collecting trading cards, doomscrolling, and traveling the world.
+            I have a deep passion for finance and technology. Currently I&apos;m interested in the Agentic Finance (AiFi)
+            space trying to create better human-agent experience for the future of finance. When I&apos;m not building
+            you can catch me playing basketball, golf, poker, or collecting trading cards.
           </p>
         </section>
 
