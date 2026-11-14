@@ -3,7 +3,7 @@ import { BackgroundVideo } from "./background-video";
 import { NowPlaying } from "./now-playing";
 import { SiteNav } from "./site-nav";
 
-// Shared by home and thoughts so the background video, nav, and Spotify card
+// Shared by home and blog so the background video, nav, and Spotify card
 // persist across tab switches instead of remounting.
 export default async function SiteLayout({ children }: LayoutProps<"/">) {
   const spotifyTrack = await getSpotifyTrack();

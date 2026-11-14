@@ -6,10 +6,10 @@ import { useEffect, useState, type MouseEvent } from "react";
 
 const tabs = [
   { label: "home", href: "/" },
-  { label: "thoughts", href: "/thoughts" },
+  { label: "blog", href: "/blog" },
 ];
 
-// Some static hosts add a trailing slash ("/thoughts/"); ignore it when matching.
+// Some static hosts add a trailing slash ("/blog/"); ignore it when matching.
 const normalize = (path: string) => path.replace(/(.)\/$/, "$1");
 
 // The outgoing page's column dims while the next one loads (see .route-content in
