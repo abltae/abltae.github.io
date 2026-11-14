@@ -7,6 +7,30 @@ const links = [
   { label: "Email", href: "mailto:taeheelee1@utexas.edu", external: false },
 ];
 
+type Month = [iso: string, label: string];
+
+const MAY: Month = ["05", "May"];
+const AUG: Month = ["08", "Aug"];
+
+// Newest first.
+const experience: {
+  year: number;
+  jobs: { company: string; team?: string; role: string; start: Month; end: Month }[];
+}[] = [
+  {
+    year: 2027,
+    jobs: [{ company: "Coinbase", team: "ai infra", role: "software engineer intern", start: MAY, end: AUG }],
+  },
+  {
+    year: 2026,
+    jobs: [
+      { company: "Robinhood", team: "finance eng", role: "software engineer intern", start: ["09", "Sep"], end: ["12", "Dec"] },
+      { company: "Robinhood", team: "ai infra", role: "software engineer intern", start: MAY, end: AUG },
+      { company: "Oklahoma City Thunder", role: "software engineer intern", start: ["01", "Jan"], end: ["04", "Apr"] },
+    ],
+  },
+];
+
 const stack = [
   "TypeScript",
   "JavaScript",
@@ -84,13 +108,40 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-semibold text-white">current focus</h2>
-          <ul className="list-disc pl-5">
-            <li>dropping 20 points in intramural basketball</li>
-            <li>find an internship</li>
-            <li>Coursework: business stuff</li>
-          </ul>
+        <section className="flex flex-col gap-5">
+          <h2 className="text-xl font-semibold text-white">work experience</h2>
+          {/* One continuous line, newest first: hollow markers for years, solid dots for roles. */}
+          <ol className="flex flex-col gap-7 border-l border-white/45 pl-6">
+            {experience.map(({ year, jobs }) => (
+              <li key={year} className="flex flex-col gap-4">
+                <h3 className="relative font-mono text-xs tracking-[0.2em] text-white/60">
+                  <span
+                    aria-hidden
+                    className="absolute top-1/2 -left-[31px] h-3 w-3 -translate-y-1/2 rounded-full border border-white/60 bg-black"
+                  />
+                  {year}
+                </h3>
+                <ol className="flex flex-col gap-4">
+                  {jobs.map(job => (
+                    <li key={`${job.company}-${job.start}`} className="relative">
+                      <span aria-hidden className="absolute top-2 -left-[29px] h-2 w-2 rounded-full bg-white" />
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                        <p>
+                          <span className="font-semibold text-white">{job.company}</span>
+                          {job.team && <span className="text-white/60"> · {job.team}</span>}
+                        </p>
+                        <p className="font-mono text-sm text-white/60">
+                          <time dateTime={`${year}-${job.start[0]}`}>{job.start[1]}</time> –{" "}
+                          <time dateTime={`${year}-${job.end[0]}`}>{job.end[1]}</time>
+                        </p>
+                      </div>
+                      <p className="text-white/70">{job.role}</p>
+                    </li>
+                  ))}
+                </ol>
+              </li>
+            ))}
+          </ol>
         </section>
 
         <section className="flex flex-col gap-3">
