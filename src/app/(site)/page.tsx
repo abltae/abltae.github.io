@@ -37,7 +37,7 @@ export default function Home() {
               <a
                 href={link.href}
                 {...(link.external && { target: "_blank", rel: "noreferrer" })}
-                className="text-white underline decoration-white/30 underline-offset-4 transition-[text-decoration-color] duration-150 ease-out hover:decoration-white focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white active:text-white/70"
+                className="hit-area text-white underline decoration-white/30 underline-offset-4 transition-[text-decoration-color] duration-150 ease-out hover:decoration-white focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white active:text-white/70"
               >
                 {link.label}
               </a>

@@ -25,15 +25,15 @@ body {
   text-shadow: none;
 }
 
-/* Page switches: the column dims the instant a tab is clicked (site-nav sets
-   data-navigating), then the incoming page rises from that same level, so the
-   swap reads as one cross-fade while the video keeps running underneath. */
+/* Page switches: the outgoing column dims the instant a tab is clicked (site-nav
+   marks it data-leaving), then the incoming page rises from that same level, so
+   the swap reads as one cross-fade while the video keeps running underneath. */
 .route-content {
   transition: opacity 120ms ease-out;
 }
 
-html[data-navigating] .route-content {
-  opacity: 0.45;
+.route-content[data-leaving] {
+  opacity: 0.6;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -51,6 +51,60 @@ html[data-navigating] .route-content {
 
 @keyframes route-enter {
   from {
-    opacity: 0.45;
+    opacity: 0.6;
   }
+}
+
+/* Nav underline: full under the current page. While its page loads, the clicked
+   tab's line draws in left to right, but only past 300ms, so fast switches
+   never flash a half-drawn line. */
+.nav-tab-label {
+  position: relative;
+}
+
+.nav-tab-label::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+[data-state="active"] > .nav-tab-label::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-state="pending"] > .nav-tab-label::after {
+    animation: nav-progress 900ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-state="pending"] > .nav-tab-label::after {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes nav-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Widens a small link's tap area (e.g. "X") without moving the layout. */
+.hit-area {
+  position: relative;
+}
+
+.hit-area::after {
+  content: "";
+  position: absolute;
+  inset: -4px -8px;
 }

@@ -23,7 +23,7 @@ export default function ThoughtsPage() {
               href="https://x.com/jjkjjjn"
               target="_blank"
               rel="noreferrer"
-              className="text-white underline decoration-white/30 underline-offset-4 transition-[text-decoration-color] duration-150 ease-out hover:decoration-white focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white active:text-white/70"
+              className="hit-area text-white underline decoration-white/30 underline-offset-4 transition-[text-decoration-color] duration-150 ease-out hover:decoration-white focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white active:text-white/70"
             >
               X
             </a>
