@@ -32,32 +32,6 @@ const experience: {
   },
 ];
 
-const stack = [
-  "TypeScript",
-  "JavaScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Python",
-  "Java",
-  "MySQL",
-  "PostgreSQL",
-  "AWS",
-  "HTML5",
-  "CSS3",
-  "C#",
-  "Git",
-  "Tailwind",
-  "Azure",
-  "Vite",
-  "Vercel",
-  "Prisma",
-  "Supabase",
-  "Stripe",
-  "LangChain",
-  "FastAPI",
-];
-
 export default function Home() {
   return (
     <>
@@ -143,17 +117,6 @@ export default function Home() {
               </li>
             ))}
           </ol>
-        </section>
-
-        <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-semibold text-white">stack</h2>
-          <p>Favorite tools powering my projects.</p>
-          <p className="text-white/75">{stack.join(", ")}</p>
-        </section>
-
-        <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-semibold text-white">get in touch</h2>
-          <p>If you&apos;re working on something cool or wanna bless me with a internship hit me up!</p>
         </section>
       </main>
     </>
