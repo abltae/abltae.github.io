@@ -20,10 +20,10 @@ Every push to `main` runs `.github/workflows/deploy.yml`, which builds a static 
 
 The "now playing" card is fetched at build time (GitHub Pages has no server), and the workflow rebuilds every 15 minutes to keep it fresh. It needs three repository secrets: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REFRESH_TOKEN`.
 
-To set or refresh them, add `http://127.0.0.1:8888/callback` as a Redirect URI on your Spotify app, then run this in your own terminal:
+To set or refresh them, add `https://abltae.github.io/callback` as a Redirect URI on your Spotify app, then run this in your own terminal:
 
 ```bash
 npm run spotify:auth
 ```
 
-It asks for the Client ID and Secret, has you approve access in the browser, and saves all three secrets to GitHub without printing them. Without the secrets the site still builds; the card is just hidden.
+It asks for the Client ID and Secret and opens Spotify. After you approve, the site's `/callback` page shows a one-time code; paste it into the terminal and the script saves all three secrets to GitHub without printing them. Without the secrets the site still builds; the card is just hidden.
