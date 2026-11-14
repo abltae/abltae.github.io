@@ -71,7 +71,7 @@ export default function Home() {
           <h2 className="text-xl font-semibold text-white">about</h2>
           <p>
             I have a deep passion for finance and technology. Currently I&apos;m interested in the Agentic Finance (AiFi)
-            space trying to create better human-agent experience for the future of finance. When I&apos;m not building
+            space trying to create a better human-agent experience for the future of finance. When I&apos;m not building
             you can catch me playing basketball, golf, poker, or collecting trading cards.
           </p>
         </section>
