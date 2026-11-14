@@ -16,8 +16,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "Tae Hee Lee",
-  description:
-    "Business major + CS minor, avid full-stack developer interested in LLM and Blockchain technologies.",
+  description: "MIS student at the McCombs School of Business at UT Austin, building full-stack apps and LLM integrations.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

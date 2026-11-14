@@ -58,9 +58,6 @@ export default function Home() {
               Tae Hee Lee
             </span>
           </h1>
-          <p className="text-lg">
-            Business major + CS minor, avid full-stack developer interested in LLM and Blockchain technologies.
-          </p>
           <p className="text-white/70">Based in Austin, Texas</p>
           <ul className="flex gap-5 pt-1">
             {links.map(link => (
