@@ -10,7 +10,6 @@ import { DiMysql, DiPostgresql } from "react-icons/di";
 import { SiTypescript, SiVite, SiPrisma, SiLangchain, SiFastapi } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { VscAzure } from "react-icons/vsc";
-import type { SpotifyTrack } from "@/lib/spotify";
 
 const stackIcons: { label: string; Icon: IconType }[] = [
   { label: "TypeScript", Icon: SiTypescript },
@@ -41,7 +40,6 @@ const stackIcons: { label: string; Icon: IconType }[] = [
 const tabs = [
   { id: "readme", label: "../README.md" },
   { id: "stack", label: "../stack.env" },
-  { id: "spotify", label: "../spotify.ts" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
@@ -70,7 +68,7 @@ const overviewSections = [
   },
 ];
 
-export function Tabs({ spotifyTrack }: { spotifyTrack: SpotifyTrack | null }) {
+export function Tabs() {
   const [activeTab, setActiveTab] = useState<TabId>("readme");
 
   return (
@@ -123,45 +121,6 @@ export function Tabs({ spotifyTrack }: { spotifyTrack: SpotifyTrack | null }) {
                   <Icon className="h-6 w-6" aria-label={label} />
                 </span>
               ))}
-            </div>
-          </div>
-        )}
-
-        {activeTab === "spotify" && (
-          <div className="space-y-4 text-zinc-300">
-            <h2 className="text-xl font-semibold text-white">spotify</h2>
-            <p>check out what im listening to.</p>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              {spotifyTrack ? (
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  {spotifyTrack.albumImageUrl && (
-                    // Static export has no image optimizer, so a plain <img> is fine here.
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={spotifyTrack.albumImageUrl}
-                      alt={spotifyTrack.album}
-                      className="h-24 w-24 rounded-xl object-cover"
-                    />
-                  )}
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.3em] text-[#fbb040]">
-                      {spotifyTrack.isPlaying ? "Now Playing" : "Last Played"}
-                    </p>
-                    <a
-                      href={spotifyTrack.songUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-lg font-semibold text-white hover:underline"
-                    >
-                      {spotifyTrack.title}
-                    </a>
-                    <p className="text-sm text-zinc-400">{spotifyTrack.artist}</p>
-                    <p className="text-xs text-zinc-500">{spotifyTrack.album}</p>
-                  </div>
-                </div>
-              ) : (
-                <p className="text-sm text-zinc-500">Nothing to show right now.</p>
-              )}
             </div>
           </div>
         )}

@@ -1,5 +1,4 @@
 import TextType from "@/components/type-text";
-import { getSpotifyTrack } from "@/lib/spotify";
 import { Tabs } from "./tabs";
 
 const links = [
@@ -32,9 +31,7 @@ const links = [
   },
 ];
 
-export default async function Home() {
-  const spotifyTrack = await getSpotifyTrack();
-
+export default function Home() {
   return (
     <div className="min-h-screen w-full px-6 py-16 font-sans text-zinc-50 sm:px-16">
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-16 lg:flex-row lg:items-start">
@@ -75,7 +72,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <Tabs spotifyTrack={spotifyTrack} />
+        <Tabs />
       </main>
     </div>
   );

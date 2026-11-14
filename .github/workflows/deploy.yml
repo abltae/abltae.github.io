@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  # Rebuild periodically so the Spotify track (fetched at build time) stays fresh.
-  schedule:
-    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -28,14 +25,8 @@ jobs:
         run: |
           npm ci
           npm run build
-        env:
-          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
-          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
-          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out
-          # The scheduled rebuilds would otherwise add ~100 commits a day to gh-pages.
-          single-commit: true
