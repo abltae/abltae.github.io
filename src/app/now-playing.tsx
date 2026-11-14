@@ -17,10 +17,9 @@ export function NowPlaying({ track }: { track: SpotifyTrack }) {
         <img src={track.albumImageUrl} alt="" width={36} height={36} className="h-9 w-9 shrink-0" />
       )}
       <div className="min-w-0">
-        <p className="font-mono text-[10px] tracking-[0.2em] text-white/50 uppercase">
-          {track.isPlaying ? "Now playing" : "Last played"} on Spotify
-        </p>
         <p className="truncate text-sm">
+          {/* No visible label; screen readers still get the context. */}
+          <span className="sr-only">{track.isPlaying ? "Now playing" : "Last played"} on Spotify: </span>
           <span className="text-white underline decoration-white/0 underline-offset-4 transition-[text-decoration-color] duration-150 ease-out group-hover:decoration-white">
             {track.title}
           </span>
