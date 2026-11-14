@@ -98,6 +98,38 @@ body {
   }
 }
 
+/* Snorlax rolls back and forth along the top of the Spotify card: the mover
+   carries it across the card's width (ending flush with the right edge), while
+   the sprite turns in chunky 15° steps so it reads as pixel art. Both share one
+   duration and reverse together, so the roll direction matches the travel. */
+.snorlax-mover {
+  width: calc(100% - 24px);
+  animation: snorlax-travel 12s linear infinite alternate;
+}
+
+.snorlax-sprite {
+  animation: snorlax-spin 12s steps(72) infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snorlax-mover,
+  .snorlax-sprite {
+    animation: none;
+  }
+}
+
+@keyframes snorlax-travel {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes snorlax-spin {
+  to {
+    transform: rotate(1080deg);
+  }
+}
+
 /* Widens a small link's tap area (e.g. "X") without moving the layout. */
 .hit-area {
   position: relative;
