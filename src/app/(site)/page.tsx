@@ -9,17 +9,24 @@ const links = [
 
 type Month = [iso: string, label: string];
 
+// Logos render 20px tall; width keeps each file's aspect ratio. `tile` marks an
+// opaque square app icon, which gets rounded corners to read as one.
+type Logo = { src: string; width: number; tile?: boolean };
+
+const ROBINHOOD: Logo = { src: "/logos/robinhood.png", width: 20, tile: true };
+const THUNDER: Logo = { src: "/logos/okc-thunder.png", width: 34 };
+
 // Newest first.
 const experience: {
   year: number;
-  jobs: { company: string; team?: string; role: string; start: Month; end: Month }[];
+  jobs: { company: string; logo?: Logo; team?: string; role: string; start: Month; end: Month }[];
 }[] = [
   {
     year: 2026,
     jobs: [
-      { company: "Robinhood", team: "finance eng", role: "software engineer intern", start: ["09", "Sep"], end: ["12", "Dec"] },
-      { company: "Robinhood", team: "ai infra", role: "software engineer intern", start: ["05", "May"], end: ["08", "Aug"] },
-      { company: "Oklahoma City Thunder", team: "data platform", role: "software engineer intern", start: ["01", "Jan"], end: ["04", "Apr"] },
+      { company: "Robinhood", logo: ROBINHOOD, team: "finance eng", role: "software engineer intern", start: ["09", "Sep"], end: ["12", "Dec"] },
+      { company: "Robinhood", logo: ROBINHOOD, team: "ai infra", role: "software engineer intern", start: ["05", "May"], end: ["08", "Aug"] },
+      { company: "Oklahoma City Thunder", logo: THUNDER, team: "data platform", role: "software engineer intern", start: ["01", "Jan"], end: ["04", "Apr"] },
     ],
   },
 ];
@@ -74,8 +81,25 @@ export default function Home() {
                     <span aria-hidden className="absolute top-2 -left-[29px] h-2 w-2 rounded-full bg-white" />
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4">
                       <p>
+                        {job.logo && (
+                          // Decorative: the company name follows. Static export has no image optimizer, so a plain <img> is fine.
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={job.logo.src}
+                            alt=""
+                            width={job.logo.width}
+                            height={20}
+                            className={`mr-2 inline-block h-5 w-auto align-middle ${job.logo.tile ? "rounded-[5px]" : ""}`}
+                          />
+                        )}
                         <span className="font-semibold text-white">{job.company}</span>
-                        {job.team && <span className="text-white/60"> · {job.team}</span>}
+                        {/* Team wraps as one unit so a narrow row never splits "data / platform". */}
+                        {job.team && (
+                          <>
+                            {" "}
+                            <span className="whitespace-nowrap text-white/60">· {job.team}</span>
+                          </>
+                        )}
                       </p>
                       <p className="font-mono text-sm text-white/60">
                         <time dateTime={`${year}-${job.start[0]}`}>{job.start[1]}</time> –{" "}
