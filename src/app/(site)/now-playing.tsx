@@ -15,7 +15,7 @@ export function NowPlaying({ track }: { track: SpotifyTrack }) {
     <div
       aria-hidden={!visible}
       inert={!visible}
-      className={`mx-auto -mt-8 w-full max-w-2xl px-6 pb-20 transition-opacity duration-200 ease-out motion-reduce:transition-none sm:-mt-16 xl:fixed xl:right-6 xl:bottom-6 xl:z-10 xl:m-0 xl:w-auto xl:max-w-[min(20rem,calc((100vw-42rem)/2-3rem))] xl:p-0 ${
+      className={`mx-auto -mt-4 w-full max-w-2xl px-6 pb-20 transition-opacity duration-200 ease-out motion-reduce:transition-none sm:-mt-12 xl:fixed xl:right-6 xl:bottom-6 xl:z-10 xl:m-0 xl:w-auto xl:max-w-[min(20rem,calc((100vw-42rem)/2-3rem))] xl:p-0 ${
         visible ? "opacity-100" : "pointer-events-none opacity-0 max-xl:hidden"
       }`}
     >
