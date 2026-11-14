@@ -1,5 +1,7 @@
 import TextType from "@/components/type-text";
+import { getSpotifyTrack } from "@/lib/spotify";
 import { BackgroundVideo } from "./background-video";
+import { NowPlaying } from "./now-playing";
 
 const links = [
   { label: "GitHub", href: "https://github.com/abltae", external: true },
@@ -25,7 +27,9 @@ const experience: {
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const spotifyTrack = await getSpotifyTrack();
+
   return (
     <>
       <BackgroundVideo />
@@ -111,6 +115,7 @@ export default function Home() {
             ))}
           </ol>
         </section>
+        {spotifyTrack && <NowPlaying track={spotifyTrack} />}
       </main>
     </>
   );
