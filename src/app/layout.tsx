@@ -15,7 +15,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tae Hee Lee",
+  title: { default: "Tae Hee Lee", template: "%s · Tae Hee Lee" },
   description: "MIS student at the McCombs School of Business at UT Austin, building full-stack apps and LLM integrations.",
 };
 
