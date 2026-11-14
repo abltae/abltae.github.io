@@ -1,6 +1,4 @@
-import TextType from "@/components/type-text";
-import { getSpotifyTrack } from "@/lib/spotify";
-import { NowPlaying } from "./now-playing";
+import { Name } from "./name";
 
 const links = [
   { label: "GitHub", href: "https://github.com/abltae", external: true },
@@ -26,29 +24,11 @@ const experience: {
   },
 ];
 
-export default async function Home() {
-  const spotifyTrack = await getSpotifyTrack();
-
+export default function Home() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-12 px-6 py-20 text-white/90 sm:py-28">
       <header className="flex flex-col gap-3">
-        <h1 aria-label="Tae Hee Lee" className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          <span aria-hidden className="motion-reduce:hidden">
-            <TextType
-              as="span"
-              text={["Tae Hee Lee", "Tae Hee Lee"]}
-              typingSpeed={200}
-              pauseDuration={3000}
-              showCursor={true}
-              cursorCharacter="|"
-              loop={true}
-              cursorClassName="font-light"
-            />
-          </span>
-          <span aria-hidden className="hidden motion-reduce:inline">
-            Tae Hee Lee
-          </span>
-        </h1>
+        <Name />
         <p className="text-lg">junior @ UT Austin McCombs</p>
         <p className="text-white/70">Based in Austin, Texas</p>
         <ul className="flex gap-5 pt-1">
@@ -110,7 +90,6 @@ export default async function Home() {
           ))}
         </ol>
       </section>
-      {spotifyTrack && <NowPlaying track={spotifyTrack} />}
     </main>
   );
 }
