@@ -27,7 +27,7 @@ const experience: {
     jobs: [
       { company: "Robinhood", team: "finance eng", role: "software engineer intern", start: ["09", "Sep"], end: ["12", "Dec"] },
       { company: "Robinhood", team: "ai infra", role: "software engineer intern", start: MAY, end: AUG },
-      { company: "Oklahoma City Thunder", role: "software engineer intern", start: ["01", "Jan"], end: ["04", "Apr"] },
+      { company: "Oklahoma City Thunder", team: "data platform", role: "software engineer intern", start: ["01", "Jan"], end: ["04", "Apr"] },
     ],
   },
 ];
