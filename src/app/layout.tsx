@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "abltae",
-  description: "Personal website",
+  title: "Tae Hee Lee",
+  description:
+    "Business major + CS minor, avid full-stack developer interested in LLM and Blockchain technologies.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
