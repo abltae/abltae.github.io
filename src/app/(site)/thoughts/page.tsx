@@ -13,23 +13,7 @@ export default function ThoughtsPage() {
       <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">thoughts</h1>
 
       {thoughts.length === 0 ? (
-        <div className="flex flex-col gap-3">
-          <p>
-            Coming soon: notes on agentic finance (AiFi), what I&apos;m building, and what I learn along the way.
-          </p>
-          <p className="text-white/70">
-            Until then, follow along on{" "}
-            <a
-              href="https://x.com/jjkjjjn"
-              target="_blank"
-              rel="noreferrer"
-              className="hit-area text-white underline decoration-white/30 underline-offset-4 transition-[text-decoration-color] duration-150 ease-out hover:decoration-white focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white active:text-white/70"
-            >
-              X
-            </a>
-            .
-          </p>
-        </div>
+        <p className="text-white/60">Coming soon.</p>
       ) : (
         <ol className="flex flex-col gap-10">
           {thoughts.map(thought => (

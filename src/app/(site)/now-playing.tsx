@@ -4,8 +4,9 @@ import { usePathname } from "next/navigation";
 import type { SpotifyTrack } from "@/lib/spotify";
 
 // Lives in the shared layout (not the home page) so it can fade out and back in
-// when switching tabs instead of popping. Pinned bottom-right on larger screens;
-// on phones it sits at the end of the home page so it never covers the text.
+// when switching tabs instead of popping. Pinned bottom-right only on wide screens,
+// capped to the gutter beside the column; narrower, it sits at the end of the home
+// page so it never covers the timeline.
 export function NowPlaying({ track }: { track: SpotifyTrack }) {
   const visible = usePathname() === "/";
 
@@ -13,8 +14,8 @@ export function NowPlaying({ track }: { track: SpotifyTrack }) {
     <div
       aria-hidden={!visible}
       inert={!visible}
-      className={`mx-auto -mt-8 w-full max-w-2xl px-6 pb-20 transition-opacity duration-200 ease-out motion-reduce:transition-none sm:fixed sm:right-6 sm:bottom-6 sm:z-10 sm:m-0 sm:w-auto sm:max-w-xs sm:p-0 ${
-        visible ? "opacity-100" : "pointer-events-none opacity-0 max-sm:hidden"
+      className={`mx-auto -mt-8 w-full max-w-2xl px-6 pb-20 transition-opacity duration-200 ease-out motion-reduce:transition-none sm:-mt-16 xl:fixed xl:right-6 xl:bottom-6 xl:z-10 xl:m-0 xl:w-auto xl:max-w-[min(20rem,calc((100vw-42rem)/2-3rem))] xl:p-0 ${
+        visible ? "opacity-100" : "pointer-events-none opacity-0 max-xl:hidden"
       }`}
     >
       <a
